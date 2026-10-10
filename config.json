@@ -1,0 +1,75 @@
+{
+  "_note": "PAPER MODE ONLY. Change risk limits here; no code edits needed. Every setting is explained in README.md under 'Config reference'. Percent values are written as plain numbers: 1.0 means 1%.",
+
+  "mode": "paper",
+  "starting_cash_usd": 10000,
+
+  "data": {
+    "btc_csv": "data/btc_usd_1d.csv",
+    "sample_btc_csv": "data/sample/btc_usd_1d_sample.csv",
+    "prediction_markets_csv": "data/sample/prediction_markets_sample.csv",
+    "download_source": "coinbase",
+    "download_start": "2016-01-01",
+    "download_granularity": "1d"
+  },
+
+  "backtest": {
+    "start_date": null,
+    "end_date": null
+  },
+
+  "costs": {
+    "fee_pct": 0.10,
+    "slippage_pct": 0.05
+  },
+
+  "strategy": {
+    "name": "sma_crossover",
+    "sma_crossover": { "fast_period": 20, "slow_period": 50 },
+    "rsi_mean_reversion": { "period": 14, "buy_below": 30, "sell_above": 55 },
+    "donchian_breakout": { "entry_lookback": 20, "exit_lookback": 10 }
+  },
+
+  "volatility_filter": {
+    "enabled": true,
+    "lookback_bars": 20,
+    "min_annual_vol_pct": 15,
+    "max_annual_vol_pct": 120,
+    "atr_period": 14
+  },
+
+  "risk": {
+    "risk_per_trade_pct": 1.0,
+    "stop_loss_atr_multiple": 2.0,
+    "trailing_stop": true,
+    "take_profit_atr_multiple": 0,
+    "max_position_pct": 50.0,
+    "max_daily_loss_pct": 3.0,
+    "max_drawdown_pct": 20.0,
+    "max_trades_per_day": 2,
+    "min_trade_usd": 25
+  },
+
+  "prediction_markets": {
+    "starting_cash_usd": 1000,
+    "vol_lookback_days": 30,
+    "min_edge": 0.05,
+    "kelly_fraction": 0.25,
+    "max_stake_pct": 2.0,
+    "max_total_exposure_pct": 20.0,
+    "min_price": 0.05,
+    "max_price": 0.95,
+    "price_slippage": 0.01,
+    "fee_per_contract": 0.01,
+    "min_annual_vol_pct": 15,
+    "max_annual_vol_pct": 150,
+    "max_drawdown_pct": 25.0
+  },
+
+  "output": {
+    "log_dir": "logs",
+    "results_dir": "results",
+    "log_level": "INFO",
+    "terminal_chart": true
+  }
+}

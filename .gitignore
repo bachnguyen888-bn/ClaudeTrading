@@ -1,0 +1,14 @@
+# Secrets: never commit your real .env
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Generated output (folders are kept via .gitkeep)
+logs/*
+!logs/.gitkeep
+results/*
+!results/.gitkeep
